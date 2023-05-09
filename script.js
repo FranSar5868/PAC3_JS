@@ -15,10 +15,15 @@ async function fetchRandomPokemon() {
           .catch(error => console.error(error));
     }
     
-    const promises = [];
+    // const promises = [];
     
-    for (let i = 0; i < 10; i++) {
-    promises.push(fetchRandomPokemon());
+    // for (let i = 0; i < 10; i++) {
+    // promises.push(fetchRandomPokemon());
+    // }
+
+    const promises = new Set();
+    while (promises.size < 10) {
+    promises.add(fetchRandomPokemon());
     }
 
     Promise.all(promises)
