@@ -1,0 +1,157 @@
+/* Set a default font and background color for the entire document */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  /* Center the page title */
+  h1 {
+    text-align: center;
+  }
+  
+  /* Style the page title */
+  h2#title {
+    font-size: 24px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  /* Style the unordered list */
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the list items */
+  li {
+    margin-bottom: 10px;
+  }
+  
+  /* Add a border and padding to the list items */
+  li {
+    border: 0px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  /* Add a background color to the list items when hovered */
+  li:hover {
+    background-color: #f5f5f5;
+  }
+
+  /* Maquetació Els meus projectes */
+
+
+  .cards {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    border: 1px solid #222;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 15px 15px #666;
+  }
+  
+  .card > p {
+    padding: 1rem;
+  }
+  
+  .card > button {
+    margin: 1rem;
+    padding: .5rem 1rem; 
+  }
+  
+    /* Maquetació Responsive */
+
+
+    /* 
+    s'aplicarà per pantalles de entre 601px i 992px, o sigui tablets
+    */
+    @media only screen and (min-width: 601px) and  (max-width: 992px) {
+      .cards {
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: flex-start;
+      }
+      .card {
+        flex: 0 0 calc(50% - 5rem);
+        margin-right: 5rem;
+      }
+      .card:last-child {
+        margin-right: 0;
+  }
+  
+ .experiencia_container {
+   flex-direction: row;
+   justify-content: center;
+   flex-wrap: wrap;
+  }
+  
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* 
+s'aplicarà per pantalles de COM A MÀXIM 600px, o el que és el mateix, pantalles MÉS PETITES de 600px
+*/
+@media only screen and (max-width: 600px) {
+  h1 {
+    color: greenyellow;
+  font-size: 2rem;
+  text-shadow: 0 0 4px black; /* ombrejat al voltant del text */
+}
+h2 {
+  color: grey;
+  text-align: center; /* provar amb left o right */
+  font-size: 1rem; /* mida del text */
+  margin-bottom: 3rem;
+}
+ 
+ 
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  td, th {
+    padding: 2px;
+    font-size: 8px;
+  }
+  
+ 
+  .presentation2 {
+    flex-wrap: wrap;
+    margin-bottom: 10rem;
+    max-width: 100%;
+  }
+
+
+  .cards {
+  gap: 1rem;
+  justify-content: flex-start;
+}
+.card {
+  width: 100%;
+  margin-right: 0;
+  margin-bottom: 1rem;
+}
+
+.experiencia_container {
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid-container {
+grid-template-columns: repeat(1, 1fr);
+}
+
+}
+  
