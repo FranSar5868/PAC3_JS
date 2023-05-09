@@ -5,23 +5,56 @@ async function fetchRandomPokemon() {
     const maxNumofPokemons = 1010;
     const pokemonId = Math.floor(Math.random() * maxNumofPokemons) + 1;
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
-    fetch(url)
+    return fetch(url)
           .then(response => response.json())
           .then(data => {
             const pokemonName = data.name;
-            document.getElementById('pokemon-name').textContent = pokemonName;
+            // document.getElementById('pokemon-name').textContent = pokemonName;
+            return pokemonName;
           })
           .catch(error => console.error(error));
     }
     
-
-    function fetch10Pokemons() {
-      const promises = [];
+    const promises = [];
     
-      for (let i = 0; i < 10; i++) {
-        promises.push(fetchRandomPokemon());
-      }
-    
-      return Promise.all(promises);
+    for (let i = 0; i < 10; i++) {
+    promises.push(fetchRandomPokemon());
     }
+
+    Promise.all(promises)
+    .then(results => {
+      // Loop through the results and create elements for each value
+      const container = document.getElementById("container");
+      results.forEach(value => {
+        const element = document.createElement("p");
+        element.textContent = value;
+        container.appendChild(element);
+      });
+    })
+    .catch(error => console.error(error));
+
+  
+
+    // Promise.all(promises)
+    // .then(results => {
+    //   // Loop through the results and create elements for each value
+    //   const container = document.getElementById("container");
+    //   results.forEach(value => {
+    //     const element = document.createElement("p");
+    //     element.textContent = value;
+    //     container.appendChild(element);
+    //   });
+    // })
+    // .catch(error => console.error(error));
+
+    // function fetch10Pokemons() {
+    //   const promises = [];
     
+    //   for (let i = 0; i < 10; i++) {
+    //     promises.push(fetchRandomPokemon());
+    //   }
+    
+    //   return Promise.all(promises);
+    // }
+    
+console.dir(promises[0]);
