@@ -35,8 +35,19 @@ async function fetchRandomPokemon() {
       const container = document.getElementById("container");
       results.forEach(value => {
         const element = document.createElement("p");
-        element.textContent = value.name;
+        const name = document.createTextNode(value.name);
+        element.appendChild(name);
+
+        // element.textContent = value.name;
+        // container.appendChild(element);
+        
+        const image = document.createElement("img");
+        image.setAttribute("src", value.sprites.front_default);
+        element.appendChild(image);
         container.appendChild(element);
+
+
+        console.log(value.sprites.front_default);
       });
     })
     .catch(error => console.error(error));
@@ -65,4 +76,3 @@ async function fetchRandomPokemon() {
     //   return Promise.all(promises);
     // }
     
-console.dir(promises[0]);
