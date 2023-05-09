@@ -24,33 +24,59 @@ async function fetchRandomPokemon() {
     // promises.push(fetchRandomPokemon());
     // }
 
+    // I use Set instead of Array for avoiding duplicates in the fetched Pokemons
     const promises = new Set();
     while (promises.size < 10) {
     promises.add(fetchRandomPokemon());
     }
 
+
     Promise.all(promises)
     .then(results => {
-      // Loop through the results and create elements for each value
       const container = document.getElementById("container");
-      results.forEach(value => {
-        const element = document.createElement("p");
-        const name = document.createTextNode(value.name);
-        element.appendChild(name);
-
-        // element.textContent = value.name;
-        // container.appendChild(element);
-        
+      results.forEach(pokemon => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+  
+        const name = document.createElement("h2");
+        name.textContent = pokemon.name;
+  
         const image = document.createElement("img");
-        image.setAttribute("src", value.sprites.front_default);
-        element.appendChild(image);
-        container.appendChild(element);
-
-
-        console.log(value.sprites.front_default);
+        image.src = pokemon.sprites.front_default;
+  
+        card.appendChild(name);
+        card.appendChild(image);
+        container.appendChild(card);
       });
     })
     .catch(error => console.error(error));
+  
+  
+  
+
+    
+    // Promise.all(promises)
+    // .then(results => {
+    //   // Loop through the results and create elements for each value
+    //   const container = document.getElementById("container");
+    //   results.forEach(value => {
+    //     const element = document.createElement("p");
+    //     const name = document.createTextNode(value.name);
+    //     element.appendChild(name);
+
+    //     // element.textContent = value.name;
+    //     // container.appendChild(element);
+        
+    //     const image = document.createElement("img");
+    //     image.setAttribute("src", value.sprites.front_default);
+    //     element.appendChild(image);
+    //     container.appendChild(element);
+
+
+    //     console.log(value.sprites.front_default);
+    //   });
+    // })
+    // .catch(error => console.error(error));
 
   
 

@@ -1,74 +1,53 @@
-/* Set a default font and background color for the entire document */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-  }
-  
-  /* Center the page title */
-  h1 {
-    text-align: center;
-  }
-  
-  /* Style the page title */
-  h2#title {
+  background-color: white;
+  background-image: url(./images/16117.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 75%;
+}
+
+h1 {
+  color: blue;
+font-size: 4rem;
+text-shadow: 0 0 4px black; /* ombrejat al voltant del text */
+text-align: center;
+}
+
+  h2 {
     font-size: 24px;
     margin-top: 40px;
     margin-bottom: 20px;
-    text-align: left;
+    text-align: center;
+  }
+
+  .card {
+    
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
   }
   
-  /* Style the unordered list */
-  ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    margin-bottom: 20px;
-  }
-  
-  /* Style the list items */
-  li {
+  .card img {
+    width: 100%;
+    height: auto;
     margin-bottom: 10px;
   }
-  
-  /* Add a border and padding to the list items */
-  li {
-    border: 0px solid #ccc;
-    padding: 10px;
-    border-radius: 4px;
-  }
-  
-  /* Add a background color to the list items when hovered */
-  li:hover {
+
+  .card:hover {
     background-color: #f5f5f5;
   }
-
-  /* Maquetació Els meus projectes */
-
-
-  .cards {
-    display: flex;
-    justify-content: center;
-    gap: 5rem;
-    flex-direction: row;
+  
+  #container {
     flex-wrap: wrap;
-  }
-  .card {
-    display: flex;
-    flex-direction: column;
-    width: 20vw;
-    border: 1px solid #222;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 0 15px 15px #666;
+    overflow-x: auto;
   }
   
-  .card > p {
-    padding: 1rem;
-  }
-  
-  .card > button {
-    margin: 1rem;
-    padding: .5rem 1rem; 
-  }
   
     /* Maquetació Responsive */
 
@@ -90,15 +69,7 @@ body {
         margin-right: 0;
   }
   
- .experiencia_container {
-   flex-direction: row;
-   justify-content: center;
-   flex-wrap: wrap;
-  }
-  
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+ 
 }
 /* 
 s'aplicarà per pantalles de COM A MÀXIM 600px, o el que és el mateix, pantalles MÉS PETITES de 600px
