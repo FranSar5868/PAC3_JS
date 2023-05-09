@@ -5,14 +5,17 @@ async function fetchRandomPokemon() {
     const maxNumofPokemons = 1010;
     const pokemonId = Math.floor(Math.random() * maxNumofPokemons) + 1;
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
-    return fetch(url)
-          .then(response => response.json())
-          .then(data => {
-            const pokemonName = data.name;
-            // document.getElementById('pokemon-name').textContent = pokemonName;
-            return pokemonName;
-          })
-          .catch(error => console.error(error));
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+    // return fetch(url)
+    //       .then(response => response.json())
+    //       .then(data => {
+    //         const pokemonName = data.name;
+    //         // document.getElementById('pokemon-name').textContent = pokemonName;
+    //         return pokemonName;
+    //       })
+    //       .catch(error => console.error(error));
     }
     
     // const promises = [];
@@ -32,7 +35,7 @@ async function fetchRandomPokemon() {
       const container = document.getElementById("container");
       results.forEach(value => {
         const element = document.createElement("p");
-        element.textContent = value;
+        element.textContent = value.name;
         container.appendChild(element);
       });
     })
