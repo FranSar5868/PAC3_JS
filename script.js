@@ -18,14 +18,16 @@ async function fetchRandomPokemon() {
     promises.add(fetchRandomPokemon());
     }
 
-
+    let results;
     Promise.all(promises)
-    .then(results => {
+    .then(response => {
+      results = response;
       const container = document.getElementById("container");
       results.forEach((pokemon,i) => {
         const card = document.createElement("div");
         card.classList.add("card");
         card.setAttribute("id", `pokemon-container-$(i)`);
+        card.setAttribute("data-index",i);
   
         const name = document.createElement("h2");
         name.textContent = pokemon.name;
@@ -37,14 +39,21 @@ async function fetchRandomPokemon() {
         card.appendChild(name);
         card.appendChild(image);
         container.appendChild(card);
-        card.addEventListener("click", () => {
-          // console.log(`Card clicked for Pokemon with ID ${i}`);
-          const baseURL = window.location.origin;
-          const new_url = `${baseURL}?PokeId=${pokemon.id}`;
-          window.location.href = new_url; // Navigate to the URL
-          
-        });
+       
       });
+
+      container.addEventListener("click", event => {
+        const card = event.target.closest(".card");
+        if (card) {
+          const pokemon = results[card.getAttribute("data-index")];
+          const pokemonId = pokemon.id;
+          const baseURL = window.location.origin;
+          const new_url = `${baseURL}?PokeId=${pokemonId}`;
+          window.location.href = new_url; // Navigate to the URL
+        }
+      });
+      
+
     })
     .catch(error => console.error(error));
   
