@@ -38,11 +38,13 @@ async function fetchRandomPokemon() {
         card.appendChild(image);
         container.appendChild(card);
         card.addEventListener("click", () => {
-          console.log(`Card clicked for Pokemon with ID ${i}`);
+          // console.log(`Card clicked for Pokemon with ID ${i}`);
+          const baseURL = window.location.origin;
+          const new_url = `${baseURL}?PokeId=${pokemon.id}`;
+          window.location.href = new_url; // Navigate to the URL
+          
         });
       });
-     
-      
     })
     .catch(error => console.error(error));
   
